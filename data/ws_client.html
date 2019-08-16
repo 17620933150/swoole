@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>websocket测试</h1>
+    <script type="text/javascript">
+        var wsUrl = 'ws://127.0.0.1:9503'
+
+        var websocket = new WebSocket(wsUrl);
+
+
+        //实例化对象的onopen属性  连接成功回调
+        websocket.onopen = function (evt) {
+            websocket.send('1111111');
+               console.log('连接成功')
+        }
+        
+        // 有数据返回回调
+        websocket.onmessage = function (evt) {
+            console.log('返回数据'+evt.data)
+        }
+
+        //关闭后回调
+        websocket.onclose = function (evt) {
+            console.log('已关闭')
+        }
+
+        //连接错误
+        websocket.onerror = function (evt) {
+            console.log(evt.data)
+        }
+
+
+
+
+    </script>
+</body>
+</html>
